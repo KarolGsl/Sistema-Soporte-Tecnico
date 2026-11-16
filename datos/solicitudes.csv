@@ -1,0 +1,9 @@
+id,solicitante,categoria,prioridad,estado,descripcion
+1,Ana,hardware,alta,abierta,Equipo no enciende
+2,Luis,software,media,abierta,Error al abrir sistema
+3,Marta,red,critica,abierta,Sin conexion en laboratorio
+4,Carlos,software,baja,abierta,Actualizar navegador
+5,Sofia,hardware,media,abierta,Teclado no responde
+6,Diego,red,alta,abierta,Conexion intermitente
+7,Elena,software,critica,abierta,Sistema institucional caido
+8,Pablo,hardware,baja,abierta,Instalar memoria adicional
