@@ -20,6 +20,7 @@ struct Solicitud {
     string descripcion;
     string tecnico = "En cola";
     int tiempoEstimado = 0;
+    int tiempoRespuesta = 0;
 };
 
 map<string, int> PRIORIDAD = {
@@ -34,6 +35,10 @@ map<string, int> TIEMPO_RESOLUCION = {
     {"alta", 3},
     {"media", 2},
     {"baja", 1}
+};
+
+map<string, int> TIEMPO_RESPUESTA = {
+    {"critica", 1}, {"alta", 2}, {"media", 8}, {"baja", 24}
 };
 
 int calcularTiempo(const string& prioridad) {
@@ -78,6 +83,7 @@ vector<Solicitud> cargarSolicitudes(const string& ruta) {
             throw runtime_error("Prioridad invalida en solicitud " + campos[0]);
         }
 
+        s.tiempoRespuesta = TIEMPO_RESPUESTA.at(s.prioridad);
         solicitudes.push_back(s);
     }
 
@@ -174,7 +180,8 @@ int main() {
             cout << "Prioridad: " << s.prioridad << "\n";
             cout << "Estado: " << s.estado << "\n";
             cout << "Tecnico: " << s.tecnico << "\n";
-            cout << "Tiempo estimado: " << s.tiempoEstimado << " horas\n";
+            cout << "Primera respuesta maxima: " << s.tiempoRespuesta << " horas\n";
+            cout << "Tiempo estimado de resolucion: " << s.tiempoEstimado << " horas\n";
             cout << "----------------------------------------\n";
         }
 

@@ -20,6 +20,7 @@ def cargar_solicitudes(ruta=DATA):
         solicitudes = list(csv.DictReader(archivo))
     for s in solicitudes:
         s["id"] = int(s["id"])
+        s["tiempo_respuesta_h"] = TIEMPO_RESPUESTA[s["prioridad"]]
         if s["prioridad"] not in PRIORIDAD:
             raise ValueError(f"Prioridad inválida en solicitud {s['id']}")
     return solicitudes
@@ -59,7 +60,7 @@ def main():
     solicitudes.sort(key=lambda x: (PRIORIDAD[x["prioridad"]], x["id"]))
     print("=== SISTEMA DE SOPORTE TÉCNICO (PYTHON) ===")
     for s in solicitudes:
-        print(f"#{s['id']} | {s['prioridad'].upper():7} | {s['categoria']:8} | {s['estado']:8} | {s['tecnico']:14} | ETA {s['tiempo_estimado_h']} h")
+        print(f"#{s['id']} | {s['prioridad'].upper():7} | {s['categoria']:8} | {s['estado']:8} | {s['tecnico']:14} | Respuesta max. {s['tiempo_respuesta_h']} h | ETA resolucion {s['tiempo_estimado_h']} h")
     print("\nESTADÍSTICAS")
     print(json.dumps(generar_estadisticas(solicitudes), ensure_ascii=False, indent=2))
 

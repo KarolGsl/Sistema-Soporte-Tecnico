@@ -20,8 +20,12 @@ public class Main {
         "baja", 1
     );
 
+    static final Map<String, Integer> TIEMPO_RESPUESTA = Map.of(
+        "critica", 1, "alta", 2, "media", 8, "baja", 24
+    );
+
     static class Solicitud {
-        int id, tiempo;
+        int id, tiempo, tiempoRespuesta;
         String solicitante, categoria, prioridad;
         String estado, descripcion;
         String tecnico = "En cola";
@@ -39,6 +43,7 @@ public class Main {
                     "Prioridad invalida en solicitud " + id
                 );
             }
+            tiempoRespuesta = TIEMPO_RESPUESTA.get(prioridad);
         }
     }
 
@@ -161,7 +166,8 @@ public class Main {
                 System.out.println("Prioridad: " + s.prioridad);
                 System.out.println("Estado: " + s.estado);
                 System.out.println("Tecnico: " + s.tecnico);
-                System.out.println("Tiempo estimado: " + s.tiempo + " horas");
+                System.out.println("Primera respuesta maxima: " + s.tiempoRespuesta + " horas");
+                System.out.println("Tiempo estimado de resolucion: " + s.tiempo + " horas");
                 System.out.println("----------------------------------------");
             }
 
