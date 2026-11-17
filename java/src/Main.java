@@ -6,6 +6,22 @@ import java.util.concurrent.*;
 
 public class Main {
 
+    static Path buscarCSV() throws IOException {
+    Path carpeta = Path.of("").toAbsolutePath();
+
+    while (carpeta != null) {
+        Path archivo = carpeta.resolve("datos/solicitudes.csv");
+
+        if (Files.exists(archivo)) {
+            return archivo;
+        }
+
+        carpeta = carpeta.getParent();
+    }
+
+    throw new IOException("No se encontro datos/solicitudes.csv");
+}
+
     static final Map<String, Integer> RANGO = Map.of(
         "critica", 0,
         "alta", 1,
@@ -150,7 +166,7 @@ public class Main {
 
         try {
             List<Solicitud> datos =
-                cargar("../datos/solicitudes.csv");
+                cargar(buscarCSV().toString());
 
             procesarConcurrente(datos);
             asignar(datos);
