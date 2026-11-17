@@ -10,6 +10,27 @@
 #include <stdexcept>
 
 using namespace std;
+string resolverRutaCSV() {
+    vector<string> rutas = {
+        "datos/solicitudes.csv",
+        "../datos/solicitudes.csv",
+        "../../datos/solicitudes.csv",
+        "../../../datos/solicitudes.csv"
+    };
+
+    for (const string& ruta : rutas) {
+        ifstream archivo(ruta);
+
+        if (archivo.is_open()) {
+            return ruta;
+        }
+    }
+
+    throw runtime_error(
+        "No se encontro datos/solicitudes.csv. "
+        "Verifica la carpeta del proyecto."
+    );
+}
 
 struct Solicitud {
     int id;
@@ -164,7 +185,7 @@ void generarEstadisticas(const vector<Solicitud>& solicitudes) {
 int main() {
     try {
         vector<Solicitud> solicitudes =
-            cargarSolicitudes("../datos/solicitudes.csv");
+            cargarSolicitudes(resolverRutaCSV());
 
         procesarConcurrentemente(solicitudes);
         asignarTecnicos(solicitudes);
