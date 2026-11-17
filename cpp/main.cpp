@@ -170,7 +170,7 @@ void generarEstadisticas(const vector<Solicitud>& solicitudes) {
         }
     }
 
-    cout << "\n========== ESTADISTICAS ==========\n";
+    cout << "\n ESTADISTICAS \n";
     cout << "Total: " << solicitudes.size() << "\n";
     cout << "Asignadas: " << asignadas << "\n";
     cout << "En cola: " << enCola << "\n";
@@ -190,9 +190,7 @@ int main() {
         procesarConcurrentemente(solicitudes);
         asignarTecnicos(solicitudes);
 
-        cout << "========================================\n";
         cout << " SISTEMA DE SOPORTE TECNICO - C++\n";
-        cout << "========================================\n\n";
 
         for (const auto& s : solicitudes) {
             cout << "Solicitud #" << s.id << "\n";
