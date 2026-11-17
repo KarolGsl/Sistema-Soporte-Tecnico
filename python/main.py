@@ -55,17 +55,47 @@ def generar_estadisticas(solicitudes):
 
 def main():
     solicitudes = cargar_solicitudes()
+
     procesar_concurrentemente(solicitudes)
     asignar_tecnicos(solicitudes)
-    solicitudes.sort(key=lambda x: (PRIORIDAD[x["prioridad"]], x["id"]))
+
+    solicitudes.sort(
+        key=lambda x: (PRIORIDAD[x["prioridad"]], x["id"])
+    )
+
     print("=== SISTEMA DE SOPORTE TÉCNICO (PYTHON) ===")
+
     for s in solicitudes:
-        print(f"#{s['id']} | {s['prioridad'].upper():7} | {s['categoria']:8} | {s['estado']:8} | {s['tecnico']:14} | Respuesta max. {s['tiempo_respuesta_h']} h | ETA resolucion {s['tiempo_estimado_h']} h")
-    print("\nESTADÍSTICAS")
-    print(json.dumps(generar_estadisticas(solicitudes), ensure_ascii=False, indent=2))
+        print(
+            f"#{s['id']} | {s['prioridad'].upper():7} | "
+            f"{s['categoria']:8} | {s['estado']:8} | "
+            f"{s['tecnico']:14} | "
+            f"Respuesta max. {s['tiempo_respuesta_h']} h | "
+            f"ETA resolución {s['tiempo_estimado_h']} h"
+        )
+
+    estadisticas = generar_estadisticas(solicitudes)
+
+    print("\n ESTADÍSTICAS \n")
+    print(f"Total de solicitudes: {estadisticas['total']}")
+
+    print("\nSolicitudes por prioridad:")
+    print(f"  Críticas: {estadisticas['por_prioridad'].get('critica', 0)}")
+    print(f"  Altas:    {estadisticas['por_prioridad'].get('alta', 0)}")
+    print(f"  Medias:   {estadisticas['por_prioridad'].get('media', 0)}")
+    print(f"  Bajas:    {estadisticas['por_prioridad'].get('baja', 0)}")
+
+    print("\nAsignación:")
+    print(f"  Solicitudes asignadas: {estadisticas['asignadas']}")
+    print(f"  Solicitudes en cola: {estadisticas['en_cola']}")
+
+    print("==================================")
 
 if __name__ == "__main__":
     try:
         main()
     except (OSError, ValueError, KeyError) as error:
         print(f"Error: {error}")
+
+
+
