@@ -1,46 +1,48 @@
 ﻿# Sistema de gestión y priorización de solicitudes de soporte técnico
 
-Proyecto desarrollado en C++17, Python 3 y Java 17. Las tres versiones utilizan el mismo archivo CSV y siguen las mismas reglas para organizar y asignar solicitudes de soporte técnico.
+Este proyecto consiste en un sistema que permite organizar y priorizar solicitudes de soporte técnico de acuerdo con su nivel de urgencia. Se desarrollaron tres versiones del programa utilizando C++17, Python 3 y Java, con el propósito de aplicar las mismas reglas y comparar su funcionamiento.
 
 ## Estructura del proyecto
 
-- `datos/solicitudes.csv`: contiene las solicitudes de prueba.
-- `cpp/`: implementación en C++.
-- `python/`: implementación en Python.
-- `java/`: implementación en Java.
-- `documentos/`: contiene el análisis comparativo.
-- `evidencias/`: contiene los resultados de las pruebas realizadas.
+- `datos/solicitudes.csv`: archivo que contiene las solicitudes utilizadas para las pruebas.
+- `cpp/`: código fuente de la versión en C++.
+- `python/`: código fuente y pruebas de la versión en Python.
+- `java/`: código fuente de la versión en Java.
+- `documentos/`: análisis comparativo, manual técnico y diagramas del sistema.
+- `evidencias/`: archivos que muestran los resultados de las pruebas y ejecuciones.
 
 ## Reglas de funcionamiento
 
-- Las prioridades son crítica, alta, media y baja.
-- Las solicitudes se ordenan de mayor a menor prioridad.
-- Si dos solicitudes tienen la misma prioridad, se utiliza su ID para definir el orden.
-- Cada categoría tiene un técnico asignado:
-  - Hardware: Técnico Ana.
-  - Software: Técnico Luis.
-  - Red: Técnico Mario.
-- Cada técnico puede atender una solicitud a la vez. Las demás permanecen en espera.
-- El tiempo máximo de primera respuesta depende de la prioridad:
-  - Crítica: 1 hora.
-  - Alta: 2 horas.
-  - Media: 8 horas.
-  - Baja: 24 horas.
-- El tiempo estimado de resolución es:
-  - Crítica: 4 horas.
-  - Alta: 3 horas.
-  - Media: 2 horas.
-  - Baja: 1 hora.
+El sistema utiliza cuatro niveles de prioridad: crítica, alta, media y baja. Las solicitudes se organizan de mayor a menor prioridad y, cuando tienen el mismo nivel, se toma en cuenta su ID para establecer el orden.
 
-El procesamiento concurrente se utiliza para calcular los tiempos de las solicitudes. La asignación se realiza de manera ordenada para conservar los resultados esperados.
+Cada categoría cuenta con un técnico responsable:
+
+- Hardware: Técnico Ana.
+- Software: Técnico Luis.
+- Red: Técnico Mario.
+
+Cada técnico puede atender una solicitud a la vez. Cuando llega otra solicitud de la misma categoría, esta permanece en la cola de espera.
+
+Los tiempos establecidos para cada nivel de prioridad son los siguientes:
+
+| Prioridad | Tiempo máximo de primera respuesta | Tiempo estimado de resolución |
+| --------- | ---------------------------------: | ----------------------------: |
+| Crítica   |                             1 hora |                       4 horas |
+| Alta      |                            2 horas |                       3 horas |
+| Media     |                            8 horas |                       2 horas |
+| Baja      |                           24 horas |                        1 hora |
+
+El programa también utiliza procesamiento concurrente para calcular los tiempos de las solicitudes.
 
 ## Cómo ejecutar el proyecto
 
+Antes de ejecutar cualquiera de las versiones, es necesario contar con el entorno correspondiente instalado.
+
 ### Python
 
-Se necesita tener Python 3 instalado.
+Se necesita Python 3.
 
-Desde la carpeta principal:
+Desde la carpeta principal del proyecto, ejecutar:
 
 ```bash
 python python/main.py
@@ -64,7 +66,7 @@ g++ -std=c++17 -pthread main.cpp -o soporte
 ./soporte
 ```
 
-En PowerShell:
+En Windows PowerShell:
 
 ```powershell
 g++ -std=c++17 -pthread main.cpp -o soporte.exe
@@ -73,7 +75,7 @@ g++ -std=c++17 -pthread main.cpp -o soporte.exe
 
 ### Java
 
-Se necesita JDK 17 o posterior.
+Se necesita JDK 17 o una versión posterior.
 
 Desde la carpeta principal:
 
@@ -85,27 +87,33 @@ java -cp out Main
 
 ## Archivo de datos
 
-El sistema utiliza `datos/solicitudes.csv`.
+Las solicitudes se almacenan en `datos/solicitudes.csv`.
 
-Las columnas del archivo son:
+El archivo contiene las siguientes columnas:
 
 `id,solicitante,categoria,prioridad,estado,descripcion`
 
-El conjunto de prueba contiene ocho solicitudes, dos por cada nivel de prioridad.
+Para las pruebas se utilizaron ocho solicitudes, dos por cada nivel de prioridad.
 
 ## Resultados esperados
 
-Con los datos incluidos, se espera obtener:
+Al ejecutar el sistema con los datos de prueba, se espera obtener:
 
-- 8 solicitudes en total.
-- 3 solicitudes asignadas.
-- 5 solicitudes en espera.
+- 8 solicitudes registradas.
+- 3 solicitudes asignadas a técnicos.
+- 5 solicitudes en cola de espera.
 - 2 solicitudes por cada nivel de prioridad.
 
-## Documentación y pruebas
+## Documentación y evidencias
 
-En la carpeta `documentos/` se encuentra el análisis comparativo de las tres implementaciones.
+Dentro de la carpeta `documentos/` se encuentran el análisis comparativo, el manual técnico y los diagramas utilizados para explicar el funcionamiento y la estructura del sistema.
 
-En `evidencias/` se encuentran los resultados de las pruebas automatizadas realizadas en Python.
+La carpeta `evidencias/` contiene los archivos generados durante las pruebas y ejecuciones.
 
-Las versiones de C++ y Java todavía requieren una compilación y ejecución final para comprobar su funcionamiento en el entorno local.
+En Python se ejecutaron cinco pruebas automatizadas, todas con resultados satisfactorios. La versión en Java también se compiló y ejecutó correctamente. En C++ se comprobó la lógica de priorización y asignación mediante una versión de prueba con los datos integrados; queda pendiente verificar la lectura del archivo CSV en el código original.
+
+
+
+Gaytan Rivas Karol Emilio
+
+Ponce Jimenez Daniel Alemar
