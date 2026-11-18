@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "m9VLQl//WPg=",
+  "success": true,
+  "projectFilePath": "/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/SistemaSoporte.csproj",
+  "expectedPackageFiles": [
+    "/Users/dani8327/.nuget/packages/microsoft.net.illink.tasks/11.0.0/microsoft.net.illink.tasks.11.0.0.nupkg.sha512",
+    "/Users/dani8327/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/11.0.0/microsoft.netcore.app.runtime.osx-arm64.11.0.0.nupkg.sha512",
+    "/Users/dani8327/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/11.0.0/microsoft.aspnetcore.app.runtime.osx-arm64.11.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

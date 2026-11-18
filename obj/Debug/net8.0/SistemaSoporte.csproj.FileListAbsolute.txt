@@ -1,0 +1,17 @@
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/solicitudes.csv
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte.deps.json
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte.runtimeconfig.json
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte.runtimeconfig.dev.json
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte.dll
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/bin/Debug/net8.0/SistemaSoporte.pdb
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.AssemblyInfoInputs.cache
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.AssemblyInfo.cs
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.csproj.CoreCompileInputs.cache
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.dll
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/refint/SistemaSoporte.dll
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.pdb
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaSoporte.genruntimeconfig.cache
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/ref/SistemaSoporte.dll
+/Users/dani8327/Downloads/Sistema-Soporte-Tecnico-main 6/cs/obj/Debug/net8.0/SistemaS.CE76DE70.Up2Date
