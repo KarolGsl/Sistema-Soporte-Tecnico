@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 tempCodeRunnerFile.*
 .vscode/
+bin/
+obj/
+__pycache__/
+*.pyc
+.vs/
